@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pjt.core.main.mapper.MainMapper">
+    <sql id="layoutColumns">
+          ZONE_ID
+        , SN
+        , USE_YN
+        , URL
+        , MENU_ID
+        , FIRST_TXT
+        , SECOND_TXT
+        , THIRD_TXT
+        , ORIGINAL_FNAME
+        , SAVED_FNAME
+        , FSIZE
+        , CREATED_DT
+        , MODIFIED_DT
+    </sql>
+    <update id="updateLayoutCd" parameterType="pjt.core.main.vo.LayoutCdVO">
+        UPDATE TB_MAIN_LAYOUT_CD
+        SET
+              USE_YN = #{useYn}
+            , MODIFIED_DT = SUBSTRING(TO_CHAR(NOW()),1,10)
+        WHERE
+            ZONE_ID = #{zoneId}
+    </update>
+
+    <select id="selectLayoutCd" resultType="pjt.core.main.vo.LayoutCdVO">
+        /*MainMapper.selectLayoutCd*/
+        SELECT    ZONE_ID
+                , USE_YN
+        FROM TB_MAIN_LAYOUT_CD
+    </select>
+
+    <!-- 메인 구역 상세 배치 생성 -->
+    <insert id="insertLayoutDetail" parameterType="pjt.core.main.vo.LayoutReqVO">
+        /*MainMapper.insertLayoutDetail*/
+        INSERT INTO TB_MAIN_LAYOUT (
+            <include refid="layoutColumns"></include>
+        ) VALUES (
+              #{zoneId}
+            , #{sn}
+            , #{useYn}
+            , #{url}
+            , #{menuId}
+            , #{firstTxt}
+            , #{secondTxt}
+            , #{thirdTxt}
+            , #{originalFName}
+            , NULL
+            , #{fSize}
+            , SUBSTRING(TO_CHAR(NOW()),1,10)
+            , NULL
+        )
+    </insert>
+
+    <!-- 메인 구역 상세 배치 전체 조회 -->
+    <select id="selectLayoutDetailAll" resultType="pjt.core.main.vo.LayoutResVO">
+        SELECT
+            <include refid="layoutColumns" />
+        FROM
+            TB_MAIN_LAYOUT
+    </select>
+
+    <select id="selectLayoutDetailPart" parameterType="pjt.core.main.vo.LayoutCdVO">
+        SELECT
+            <include refid="layoutColumns" />
+        FROM
+            TB_MAIN_LAYOUT
+        WHERE
+                ZONE_ID = #{zoneId}
+            AND USE_YN = #{useYn}
+    </select>
+
+</mapper>

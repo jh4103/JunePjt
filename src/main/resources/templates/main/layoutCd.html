@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .container {
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr;
+          grid-template-rows: repeat(5, 1fr);
+          grid-gap: 15px;
+          height: 1000px;
+        }
+        div.item{
+            background: lightgray;
+            color: white;
+            position: relative;
+        }
+        /* 4번째 행부터 한줄 */
+        .item:nth-child(n+4){
+            grid-column: span 3;
+        }
+        div.item_check{
+            background-color: pink;
+            color: red;
+            position: relative;
+        }
+        .zoneId{
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          font-size: xx-large;
+          font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color:red">레이아웃 선택 창(만들기)</h2>
+    <div class="container">
+        <th:block th:each="row:${LayoutCd}">
+            <th:block  th:switch="${row.useYn}">
+                <div th:case="Y" class="item_check" th:value="${row.zoneId}"><p th:text="${row.zoneId}" class="zoneId"></p>
+                    <img src="/img/main/checkmark.png"/>
+                </div>
+                <div th:case="N" class="item" th:value="${row.zoneId}"><p th:text="${row.zoneId}" class="zoneId"></p></div>
+            </th:block>
+        </th:block>
+    </div>
+</body>
+</html>

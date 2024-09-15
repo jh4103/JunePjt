@@ -1,0 +1,52 @@
+/********************** 메인 전체 화면 **********************/
+#main_content_wrap{
+    background-color: #122e40;
+    min-height: 700px;
+    width: 100%;
+}
+
+
+
+/********************** 메인화면 우측하단 버튼 **********************/
+
+#layout_button{
+    /*위치*/
+    position: fixed;
+    top: 85%;
+    left: 90%;
+    z-index: 1000;
+    width: 134px;
+    height: 43px;
+
+    /*디자인*/
+    cursor: pointer;
+    background-color:rgb(52, 152, 219);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#layout_button:hover{
+    background-color: white;
+    color: rgb(52, 152, 219);
+}
+
+
+/********************** 레이아웃 섹션 공통 **********************/
+/********************** 레이아웃 섹션 A **********************/
+.layout_area_ABC{
+    height: 350px;
+    display: flex;
+}
+.layout_area_A {
+    height: 100%;
+    background-color: white;
+}
+/********************** 레이아웃 섹션 B **********************/
+/********************** 레이아웃 섹션 C **********************/
+/********************** 레이아웃 섹션 D **********************/
+/********************** 레이아웃 섹션 E **********************/
+/********************** 레이아웃 섹션 F **********************/

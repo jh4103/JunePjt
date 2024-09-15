@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h2>welcome spring boot!</h2>
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layout/defaultLayout}"
+      layout:fragment="Content">
+    <!-- css -->
+    <link th:inline="css" th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+    <div id="main_content_wrap">
+        <div class="layout_area_ABC">
+            <div class="layout_area_A"></div>
+            <div class="layout_area_B"></div>
+            <div class="layout_area_C"></div>
+        </div>
+        <div class="layout_area_D"></div>
+        <div class="layout_area_E"></div>
+        <div class="layout_area_F"></div>
+        <button type="button" id="layout_button">Layout Edit</button>
+    </div>
 </html>

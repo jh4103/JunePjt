@@ -25,6 +25,6 @@ public class MainController {
     public String openLayoutView(Model model){
         List<LayoutCdVO> LayoutCdVO = mainService.openLayoutView();
         model.addAttribute("LayoutCd", LayoutCdVO);
-        return "/main/layoutCd";
+        return "main/layoutCd_p";
     }
 }

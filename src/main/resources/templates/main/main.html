@@ -5,15 +5,76 @@
       layout:fragment="Content">
     <!-- css -->
     <link th:inline="css" th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+    <script>
+        <!--    팝업 닫히고 난 뒤 실행되는 콜백함수    -->
+        function lfn_popup_callback(fileName){
+            switch(fileName) {
+                case "layoutCd_p":
+                    lfn_controlBtn();
+                    break;
+            }
+        }
+        function openMainLayoutPopup(){
+            var url = "/main/layoutCd.do";
+            var fileName = "layoutCd_p"; <!-- layoutCd_p.html -->
+            var option = {
+                            "title" : "레이아웃 편집 팝업창" <!--팝업 타이틀 제목-->
+                            , "width" : "80%"
+                            , "height" : "500px"
+                         };
+            gfn_openPopup(url, fileName, option, lfn_popup_callback);
+
+            <!--버튼 보이기 & 숨기기-->
+            lfn_controlBtn();
+        }
+
+        function lfn_controlBtn() {
+            var btnVal = document.getElementById("layout_button");
+            if(btnVal.style.display === "none"){
+                btnVal.style.display = "block";
+            } else {
+                btnVal.style.display = "none";
+            }
+        }
+
+    </script>
     <div id="main_content_wrap">
-        <div class="layout_area_ABC">
-            <div class="layout_area_A"></div>
-            <div class="layout_area_B"></div>
-            <div class="layout_area_C"></div>
+        <div class="layout_area_ABC display_flex">
+            <div class="layout_area_A main_border height_100"></div>
+            <div class="layout_area_B main_border height_100"></div>
+            <div class="layout_area_C main_border height_100"></div>
         </div>
-        <div class="layout_area_D"></div>
-        <div class="layout_area_E"></div>
-        <div class="layout_area_F"></div>
-        <button type="button" id="layout_button">Layout Edit</button>
+        <div class="layout_area_D display_flex">
+            <div class="main_border area_D_style"></div>
+            <div class="main_border area_D_style"></div>
+            <div class="main_border area_D_style"></div>
+        </div>
+        <!--메거진-sta-->
+        <div class="layout_area_E">
+            <div class="magazine_text_area">
+                <p class="magazine_title">Everything Magazine</p>
+            </div>
+            <div class="magazine_photo_area display_flex height_100">
+                <div class="magazine_photos main_border"></div>
+                <div class="magazine_photos main_border"></div>
+                <div class="magazine_photos main_border"></div>
+                <div class="magazine_photos main_border"></div>
+                <div class="magazine_photos main_border"></div>
+                <div class="magazine_photos main_border"></div>
+            </div>
+
+        </div>
+        <!--메거진-end-->
+        <!--3*2 베너 섹션 -sta-->
+        <div class="layout_area_F display_flex">
+            <div class="f_section main_border"></div>
+            <div class="f_section main_border"></div>
+            <div class="f_section main_border"></div>
+            <div class="f_section main_border"></div>
+            <div class="f_section main_border"></div>
+            <div class="f_section main_border"></div>
+        </div>
+        <!--3*2 베너 섹션 -end-->
+        <button type="button" id="layout_button" onclick="openMainLayoutPopup()">Layout Edit</button>
     </div>
 </html>

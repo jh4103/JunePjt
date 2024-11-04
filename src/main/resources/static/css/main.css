@@ -36,17 +36,77 @@
 
 
 /********************** 레이아웃 섹션 공통 **********************/
-/********************** 레이아웃 섹션 A **********************/
-.layout_area_ABC{
-    height: 350px;
+.main_border{
+    border-radius: 15px;
+}
+.display_flex{
     display: flex;
 }
-.layout_area_A {
+.height_100{
     height: 100%;
+}
+/********************** 레이아웃 섹션 A **********************/
+.layout_area_ABC{
+    aspect-ratio: 3 / 1;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+}
+.layout_area_ABC > div + div{
+    margin-left: 10px;
+}
+
+.layout_area_A {
+    width: calc(50% - 10px);
     background-color: white;
+    /*flex-grow: 2;*/
 }
 /********************** 레이아웃 섹션 B **********************/
+.layout_area_B {
+    width: calc(25% - 10px);
+    background-color: pink;
+    /*flex-grow: 1;*/
+}
 /********************** 레이아웃 섹션 C **********************/
+.layout_area_C {
+    width: calc(25% - 10px);
+    background-color: gray;
+   /* flex-grow: 1;*/
+}
 /********************** 레이아웃 섹션 D **********************/
+.layout_area_D {
+    aspect-ratio: 5 / 1;
+}
+.area_D_style{
+    margin: 0 5px 10px;
+    width: calc(33.3% - 10px);
+    background-color: white;
+}
 /********************** 레이아웃 섹션 E **********************/
+.layout_area_E {
+    aspect-ratio: 4 / 1;
+    padding: 80px 40px 0px 40px;
+}
+.magazine_title{
+    font-weight: 600;
+    font-size: 30px;
+    color: #F0F3F6;
+    margin: 0 30px 30px;
+}
+
+.magazine_photos{
+    margin-right: 10px;
+    background-color: pink;
+    height: 100%;
+    width: 100%;
+}
 /********************** 레이아웃 섹션 F **********************/
+.layout_area_F {
+    aspect-ratio: 2 / 1;
+    padding: 80px 10px;
+    flex-wrap: wrap;
+}
+.f_section{
+    width: calc(33.3% - 10px);
+    background-color: RGB(180 163 145);
+    margin: 0 5px 10px;
+}
